@@ -173,7 +173,7 @@ public class EmailUtil {
         && request.getSubject() != null
         && !request.getSubject().equals("")) {
       // Sender Details
-      emailBuilder.from(defaultSmtpSettings.getUsername());
+      emailBuilder.from(defaultSmtpSettings.getSenderMail());
 
       // Recipient
       request
@@ -239,7 +239,7 @@ public class EmailUtil {
     EmailPopulatingBuilder emailBuilder = EmailBuilder.startingBlank();
     emailBuilder.withSubject(subject);
     emailBuilder.to(to);
-    emailBuilder.from(defaultSmtpSettings.getUsername());
+    emailBuilder.from(defaultSmtpSettings.getSenderMail());
 
     templateConfiguration.setClassForTemplateLoading(getClass(), baseTemplatePackage);
     Template template = templateConfiguration.getTemplate(templatePath);
