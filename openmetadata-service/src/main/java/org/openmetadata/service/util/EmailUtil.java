@@ -253,7 +253,7 @@ public class EmailUtil {
   }
 
   public void sendMail(Email email) {
-    if (mailer != null) {
+    if (mailer != null && defaultSmtpSettings.getEnableSmtpServer()) {
       mailer.sendMail(email, true);
     }
   }
